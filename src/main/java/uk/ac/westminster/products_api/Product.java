@@ -6,6 +6,7 @@ public class Product {
     public String name;
     public double price;
 
+    public Product() { }
     public Product(Long id, String name, double price){
         this.id = id;
         this.name = name;
