@@ -12,6 +12,21 @@ class Product {
     + setPrice(price : double) : void
 }
 
+class Digitalproduct {
+    - downloadUrl : String
+    - fileSizeMB : double
+    + getDownloadUrl() : String
+}
+
+class PhysicalProduct {
+    - weightKg : double
+    - dimensions : String
+    + getWeightKg() : double
+}
+
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
+
 class ProductService {
     - products : List<Product>
     - nextId : Long
