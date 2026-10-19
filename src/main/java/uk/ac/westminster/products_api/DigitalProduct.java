@@ -14,5 +14,5 @@ public class DigitalProduct extends Product{
     public String getDownloadUrl() {return downloadUrl;}
 
     public double getFileSizeMB() {return fileSizeMB;}
-
+//jcwms
 }
