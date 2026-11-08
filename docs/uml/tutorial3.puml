@@ -1,31 +1,43 @@
 @startuml
 
-class Product {
+abstract class Product {
     - id : Long
     - name : String
     - price : double
     + getId() : Long
     + getName() : String
     + getPrice() : double
+    + {abstract} getSummary() : String
     + setId(id : Long) : void
     + setName(name : String) : void
     + setPrice(price : double) : void
 }
 
+interface Discountable {
+    + applyDiscountable(rate : double) : void
+    + getDiscountedPrice : double
+}
+
 class Digitalproduct {
     - downloadUrl : String
     - fileSizeMB : double
-    + getDownloadUrl() : String
+    + getSummary() : String
+    + applyDiscount(rate : double) : void
 }
 
 class PhysicalProduct {
     - weightKg : double
     - dimensions : String
-    + getWeightKg() : double
+    - discountedPrice : double
+    + getSummary() : String
+    + applyDiscount(rate : double) : void
 }
 
 Product <|-- DigitalProduct
 Product <|-- PhysicalProduct
+
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
 
 class ProductService {
     - products : List<Product>
